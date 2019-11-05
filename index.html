@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+
+    {% if site.google_analytics %}
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics }}');
+      </script>
+    {% endif %}
+    <meta charset="UTF-8">
+
+{% seo %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
+      <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+      {% if site.github.is_project_page %}
+        <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
+      {% endif %}
+      {% if site.show_downloads %}
+        <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
+        <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
+      {% endif %}
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      {{ content }}
+      <h1> 3 Data Visuals </h1>
+      <p> 3 simple data visuals </p>
+      <h2> Top 10 Bikes with the longest duration usage: </h2>
+      <img src = "bikeShareImg/top10_usedbikesDuration.png" alt = "Top 10 bikes with most duration of usage">
+      <h2> Top 10 most Frequent use bikes: </h2>
+      <img src = 
+        "bikeShareImg/top10_usedbikes.png" alt = "Top 10 most use bikes">
+      <h2> Top 5 dates with most trips: </h2> 
+      <img src = "bikeShareImg/top5_dates.png" alt = "Top 5 dates with most trips">
+      
+      <h1> Top 10 most Frequent Ending and Starting station: </h1>
+      <img src = "bikeShareImg/ending_starting_station.png" alt = "Top 10 most popular Ending and Starting Station">
+      
+      <h1> Average Distance Traveled </h1>
+      <p> I calculated average distanced traveled by estimating that the average person rides a bike 
+          at a pace of 15km/hr and then converting that into 4.2 m/s and multiplying it by the duration
+        of a ride and finding the mean of all trips </p>
+      <img src = "bikeShareImg/distanceStat.PNG" alt = "distance statistics">
+                                               
+      <h1> Commuter Data: </h1>
+      <p> I estimated that the number of commuters was around 494/2 = 247 people.
+         I got this number by taking average of all the trips done in a day. 
+         This would show, on average, the number of unique trips a day.
+         This is significant because a person who was commuting to work would 
+         likely commute to work on a daily basis and do around two trips a day 
+         (one from and to work). In addition, commuters go every day to work, thus 
+         the average number of bike share trips will be the closest to the number 
+         of people consistently using bikeshare for commuting. Thus, the average 
+         number of trips divide by 2 will give you the closest number of commuters 
+         that consistently uses bike share to go to work. </p>
+       <img src = "bikeShareImg/communtingData.PNG" alt = "communting data">
+      
+      <h1> Season Data: </h1>
+      <p> I graphed all the trips on a bar graph with the y axis being the number of trips done in that specific month.
+          By doing this, I discovered that late summer, early fall (08-10) were the most popular season with a peak
+          on August. After August, there is a strong decrease in trips for the winter season (12 - 03). </p>
+      <img src = "bikeShareImg/ridesPerMonth.png" alt = "Trips Per Month">
+      
+      <h1> Trip Route Category-Passholder Data: </h1>
+      <p> From the table it is clear that the most popular combination by a huge 
+          margin were Walk-up, One-Way and Montly Pass, One-way. One way is much more popular then roundtrips.
+          One way-Monthly is by far the most popular for people commuting to and from work because they must park their bike
+          to work and then get another bike to go home every day. Furthermore,
+          montly users would be more inclined to use the bikes because they had already paid for it. In addition,
+          for typical users if they wanted to get from one destination to another with the bike they would more 
+          often then not simply be going one-way which explains why Walk Up - One way combination was so popular.
+          The way people were using the bike would make one combination much more popular then the other. Since 
+          people were using one-way more then the roundtrip, we can assume that people were using the bike share as
+          a way to get around LA. If they weren't trying to get around the City then roundtrip would be much more 
+          popular since that would indicate people were not trying to get to any destination with the bikes and were
+        using it to exercise or other recreational use rather than as a mode of transportation. </p>
+      <img src = "bikeShareImg/tripRoute_Passholder.PNG" alt = "Table of Trip Route Category-Passholder combinations">
+      
+      <footer class="site-footer">
+        {% if site.github.is_project_page %}
+          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+        {% endif %}
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
